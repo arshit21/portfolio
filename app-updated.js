@@ -27,7 +27,7 @@ function initLoadingScreen() {
     window.addEventListener('load', () => {
         setTimeout(() => {
             loadingScreen.classList.add('hidden');
-        }, 1000);
+        }, 2000);
     });
 }
 
@@ -219,7 +219,7 @@ function initTypingAnimation() {
     }
 
     // Start typing animation after a short delay
-    setTimeout(typeWriter, 1000);
+    setTimeout(typeWriter, 2000);
 }
 
 // Navigation - Fixed
