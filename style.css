@@ -1123,11 +1123,53 @@ body.custom-cursor-enabled .cursor-ring.hover {
 }
 
 .hero-scroll {
-  position: absolute;
-  bottom: var(--space-32);
-  left: 53%;
-  transform: translateX(-50%);
-  z-index: 2;
+    position: absolute;
+    bottom: var(--space-32);
+    left: 50%; /* Default center for very small screens */
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Small mobile devices (320px - 479px) */
+@media (min-width: 320px) and (max-width: 479px) {
+    .hero-scroll {
+        left: calc(50% + 40px); /* Perfectly centered on small phones */
+    }
+}
+
+/* Mobile devices (480px - 639px) */
+@media (min-width: 480px) and (max-width: 639px) {
+    .hero-scroll {
+        left: calc(50% + 38px); /* Slightly right on larger phones */
+    }
+}
+
+/* Small tablets and large mobiles (640px - 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+    .hero-scroll {
+        left: calc(50% + 40px); /* Fine-tune for small tablets */
+    }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-scroll {
+        left: calc(50% + 40px); /* Adjust for tablet view */
+    }
+}
+
+/* Small desktop (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .hero-scroll {
+        left: calc(50% + 40px); /* Fine-tune for small desktop */
+    }
+}
+
+/* Large desktop (1280px and above) */
+@media (min-width: 1280px) {
+    .hero-scroll {
+        left: calc(50% + 40px); /* Fine-tune for large desktop */
+    }
 }
 
 .scroll-indicator {
@@ -2036,6 +2078,21 @@ section {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Center scroll animation on mobile and tablet
+@media (max-width: 768px) {
+    .hero-scroll {
+        left: 50% !important;
+    }
+}
+
+/* Fine-tune for very small mobile screens */
+/* @media (max-width: 480px) {
+    .hero-scroll {
+        left: 50% !important;
+        bottom: var(--space-24);
+    }
+} */
 
 /* Hide custom cursor on mobile devices */
 @media (max-width: 768px) {
