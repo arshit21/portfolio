@@ -31,15 +31,17 @@ function initLoadingScreen() {
     });
 }
 
-// Custom Cursor
 function initCustomCursor() {
     const cursor = document.querySelector('.custom-cursor');
     const cursorDot = document.querySelector('.custom-cursor-dot');
 
-    // Add class to hide default cursor
-    document.body.classList.add('custom-cursor-enabled');
-
-    if (window.innerWidth > 768) {
+    // Only initialize cursor on non-touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice && window.innerWidth > 768) {
+        // Add class to hide default cursor
+        document.body.classList.add('custom-cursor-enabled');
+        
         let mouseX = 0;
         let mouseY = 0;
         let cursorX = 0;
