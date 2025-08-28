@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshit Chaudhary - Software Engineer | Backend Development & Scalable Systems</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Backend-focused software engineer specializing in scalable APIs, optimized databases, and applying ML models to solve real-world challenges.">
+    <meta name="keywords" content="backend developer, software engineer, API development, scalable systems, machine learning">
+    <meta name="author" content="Arshit Chaudhary">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    
+    <!-- NEW: Dynamic Project Management Scripts -->
+    <script src="projects-data.js"></script>
+    <script src="projects-renderer.js" defer></script>
+    
+    <!-- Original app.js with modified project management -->
+    <script src="app-updated.js" defer></script>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">
+            <div class="loading-text">AC</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Arshit Chaudhary</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="typing-text"></span><span class="cursor-blink">|</span>
+            </h1>
+            <p class="hero-subtitle">Software Engineer | Backend Development & Scalable Systems</p>
+            <p class="hero-description">
+                Backend-focused software engineer specializing in scalable APIs, optimized databases, and applying ML models to solve real-world challenges.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-hero btn--primary">View My Work</a>
+                <a href="#contact" class="btn btn-hero btn--outline">Get In Touch</a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="geometric-pattern"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Passionate about building scalable systems and solving complex problems</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Background</h3>
+                    <p>Final-year B.E. student in Electronics and Communication Engineering at BITS Pilani, Pilani Campus. Interested in backend development, with experience in building APIs, working with databases, and deploying projects that can scale.</p>
+                </div>
+
+                <div class="about-card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Specializing in designing and deploying efficient backend systems, with expertise in API development, database-driven architectures, and scalable solutions using Go, Node.js, and Django.</p>
+                </div>
+                
+                <div class="about-card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI/ML Engineering</h3>
+                    <p>Focused on building intelligent models in AI/ML, with experience in medical imaging, deep learning architectures like AlexNet, and applying data-driven techniques for accurate prediction and practical problem-solving.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+<!-- Work Experience Section -->
+    <section id="experience" class="experience">
+        <div class="diagonal-mesh"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <p>Professional experience gained through internships</p>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-date">
+                        <span>May 2025 - July 2025</span>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-company">
+                            <h3>Advanced Applications Engineer - Intern</h3>
+                            <h4>Accenture</h4>
+                            <span class="location">Bengaluru, India</span>
+                        </div>
+                        <p>Developed a multimodal neural network in TensorFlow/Keras for health risk prediction (MSE: 0.4455, R²: 0.67), integrating pollution, weather, urban, and city data. Researched AI in AML and fraud detection (HSBC, UOB, Mastercard) while gaining skills in generative AI, prompt engineering, and backend development with Java (Spring Boot).</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Springboot</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Delivered high-accuracy health risk model (MSE 0.45, R² 0.67)</li>
+                            <li>Enhanced predictions by integrating cross-domain data</li>
+                            <li>Earned a PPO for outstanding technical contributions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-date">
+                        <span>May 2024 - July 2024</span>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-company">
+                            <h3>Research Intern</h3>
+                            <h4>CSIR-Central Scientific Instruments Organisation (CSIO)</h4>
+                            <span class="location">Chandigarh, India</span>
+                        </div>
+                        <p>Worked on breast cancer prediction using image processing and deep learning in MATLAB and Python, applying AlexNet on a medical imaging database with preprocessing and augmentation techniques to improve diagnostic reliability.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">AlexNet</span>
+                            <span class="tech-tag">Matlab</span>
+                        </div>
+                        <ul class="achievements">
+                            <li>Achieved 99.6% training and 99.5% testing accuracy</li>
+                            <li>Enhanced diagnostics through advanced image processing</li>
+                            <li>Applied AlexNet for breast cancer image classification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="animated-gradient"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Showcasing my best work in backend development and AI/ML</p>
+            </div>
+            
+            <!-- Featured Projects Grid - Dynamically Generated -->
+            <div id="featured-projects" class="projects-grid">
+                <!-- Projects will be dynamically inserted here by projects-renderer.js -->
+            </div>
+            
+            <!-- View All Projects CTA -->
+            <div id="view-all-cta" class="projects-cta">
+                <button id="view-all-projects" class="btn btn--primary btn--lg">
+                    View All Projects
+                </button>
+            </div>
+            
+            <!-- All Projects Section (Hidden by default) -->
+            <div id="all-projects-section" class="all-projects-section" style="display: none;">
+                <div class="projects-filter">
+                    <h3>All Projects</h3>
+                    <div class="filter-buttons">
+                        <!-- Filter buttons will be dynamically generated -->
+                    </div>
+                </div>
+                
+                <div id="all-projects-grid" class="projects-grid">
+                    <!-- All projects will be dynamically inserted here -->
+                </div>
+                
+                <div class="projects-cta">
+                    <button id="back-to-featured" class="btn btn--outline btn--lg">
+                        Back to Featured Projects
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="floating-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>Technologies I work with to build scalable systems</p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Backend Development</h3>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Node.js</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Python/Django</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Go</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Java/Spring Boot</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3>Databases & DevOps</h3>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>PostgreSQL</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>MongoDB</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Redis</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Docker/Kubernetes</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3>AI/ML & Tools</h3>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>TensorFlow/Keras</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>PyTorch</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Git/GitHub</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>AWS/Cloud</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="gradient-mesh"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Interested in discussing opportunities or collaborations</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>arshit.chaudhary@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Bengaluru, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Arshit Chaudhary. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
