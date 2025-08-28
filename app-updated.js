@@ -207,7 +207,7 @@ function initTypingAnimation() {
     const typingElement = document.querySelector('.typing-text');
     if (!typingElement) return;
 
-    const name = 'Arshit Chaudhary';
+    const name = 'Hi, I\'m Arshit';
     let index = 0;
 
     function typeWriter() {
@@ -288,43 +288,44 @@ function initNavigation() {
     });
 }
 
-// Scroll Animations
+// Enhanced loading with page reveal
 function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-
-                // Animate skill bars
-                if (entry.target.classList.contains('skill-category')) {
-                    const skillFills = entry.target.querySelectorAll('.skill-fill');
-                    skillFills.forEach((fill, index) => {
+    // Hide all content initially
+    const animateElements = document.querySelectorAll('.about-card, .experience-item, .project-card, .skill-category, .contact-item, .contact-form');
+    animateElements.forEach(el => {
+        el.classList.add('fade-in');
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+    });
+    
+    // Reveal everything after loading screen disappears
+    setTimeout(() => {
+        animateElements.forEach((el, index) => {
+            setTimeout(() => {
+                el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+                el.classList.add('animate');
+                
+                // Skill bars animation
+                if (el.classList.contains('skill-category')) {
+                    const skillFills = el.querySelectorAll('.skill-fill');
+                    skillFills.forEach((fill, fillIndex) => {
                         setTimeout(() => {
+                            fill.style.transition = 'width 1.5s ease-in-out';
                             const width = fill.style.width;
                             fill.style.width = '0%';
                             setTimeout(() => {
                                 fill.style.width = width;
-                            }, 100);
-                        }, index * 200);
+                            }, 200);
+                        }, (fillIndex * 150) + 500);
                     });
                 }
-            }
+            }, index * 80);
         });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.about-card, .experience-item, .project-card, .skill-category, .contact-item, .contact-form');
-    animateElements.forEach((el, index) => {
-        el.classList.add('fade-in');
-        el.style.transitionDelay = `${index * 0.1}s`;
-        observer.observe(el);
-    });
+    }, 1200); // Start after loading screen
 }
+
 
 // Theme Toggle - Fixed Implementation
 function initThemeToggle() {
