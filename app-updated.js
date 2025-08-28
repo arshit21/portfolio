@@ -363,17 +363,18 @@ function initThemeToggle() {
     }
 }
 
-// Contact Form - Enhanced with better UX
+// Contact Form - Enhanced with Formspree Integration
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
     if (!contactForm) return;
 
-    const nameInput = contactForm.querySelector('input[placeholder="Your Name"]');
-    const emailInput = contactForm.querySelector('input[placeholder="Your Email"]');
-    const subjectInput = contactForm.querySelector('input[placeholder="Subject"]');
-    const messageInput = contactForm.querySelector('textarea');
+    // Update selectors to use name attributes instead of placeholder
+    const nameInput = contactForm.querySelector('input[name="name"]');
+    const emailInput = contactForm.querySelector('input[name="email"]');
+    const subjectInput = contactForm.querySelector('input[name="subject"]');
+    const messageInput = contactForm.querySelector('textarea[name="message"]');
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Clear previous errors
@@ -413,18 +414,47 @@ function initContactForm() {
             return;
         }
 
-        // Simulate form submission
+        // Validation passed - Submit to Formspree
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitButton.disabled = true;
 
-        setTimeout(() => {
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            contactForm.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, 2000);
+        try {
+            // Create FormData object
+            const formData = new FormData(contactForm);
+            
+            // Submit to Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+                clearErrors(); // Clear any remaining errors after reset
+            } else {
+                // Handle Formspree validation errors
+                const data = await response.json();
+                if (data.errors && data.errors.length > 0) {
+                    // Show first error message
+                    showNotification(`Error: ${data.errors[0].message}`, 'error');
+                } else {
+                    showNotification('Failed to send message. Please try again.', 'error');
+                }
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showNotification('Network error. Please check your connection and try again.', 'error');
+        }
+
+        // Restore button
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
     });
 
     function showFieldError(field, message) {
@@ -504,6 +534,7 @@ function initContactForm() {
         }, 4000);
     }
 }
+
 
 // Projects View - Fixed Implementation (works with dynamic system)
 function initProjectsView() {
