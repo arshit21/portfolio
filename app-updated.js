@@ -254,7 +254,9 @@ function initNavigation() {
         });
     });
 
-    // Active section highlighting
+    // Optimized scroll handling with throttling
+    let ticking = false;
+
     function updateActiveSection() {
         const scrollY = window.pageYOffset;
 
@@ -272,21 +274,34 @@ function initNavigation() {
                 });
             }
         });
+        
+        ticking = false;
     }
 
-    window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection();
-
-    // Navbar background on scroll
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(19, 52, 59, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(19, 52, 59, 0.9)';
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateActiveSection);
+            ticking = true;
         }
-    });
-}
+    }
+
+// Use throttled scroll handler
+    window.addEventListener('scroll', requestTick, { passive: true });
+
+
+        window.addEventListener('scroll', updateActiveSection);
+        updateActiveSection();
+
+        // Navbar background on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(19, 52, 59, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(19, 52, 59, 0.9)';
+            }
+        });
+    }
 
 // Enhanced loading with page reveal
 function initScrollAnimations() {
@@ -309,16 +324,17 @@ function initScrollAnimations() {
                 
                 // Skill bars animation
                 if (el.classList.contains('skill-category')) {
-                    const skillFills = el.querySelectorAll('.skill-fill');
-                    skillFills.forEach((fill, fillIndex) => {
+                    const skillTags = el.querySelectorAll('.skill-tag, .skill-item, .skill-icon-item');
+                    skillTags.forEach((tag, tagIndex) => {
                         setTimeout(() => {
-                            fill.style.transition = 'width 1.5s ease-in-out';
-                            const width = fill.style.width;
-                            fill.style.width = '0%';
+                            tag.style.opacity = '0';
+                            tag.style.transform = 'translateY(10px)';
+                            tag.style.transition = 'all 0.4s ease';
                             setTimeout(() => {
-                                fill.style.width = width;
-                            }, 200);
-                        }, (fillIndex * 150) + 500);
+                                tag.style.opacity = '1';
+                                tag.style.transform = 'translateY(0)';
+                            }, 100);
+                        }, tagIndex * 50);
                     });
                 }
             }, index * 80);

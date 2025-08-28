@@ -1,3 +1,25 @@
+/* Enable native smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve scroll performance */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize animations for performance */
+.fade-in,
+.project-card,
+.skill-tag,
+.about-card,
+.experience-item {
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Force hardware acceleration */
+}
+
+
 :root {
   /* Primitive Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
@@ -2125,4 +2147,52 @@ section {
     display: inline-flex;
     align-items: center;
     gap: var(--space-8); 
+}
+
+/* Modern Skills Section - Tag/Badge Style */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-12);
+    margin-top: var(--space-16);
+    justify-content: center; /* This centers the tags */
+}
+
+.skill-tag {
+    background: rgba(var(--color-teal-300-rgb, 50, 184, 198), 0.15);
+    color: var(--color-primary);
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border: 1px solid rgba(var(--color-teal-300-rgb, 50, 184, 198), 0.3);
+    backdrop-filter: blur(10px);
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.skill-tag:hover {
+    background: rgba(var(--color-teal-300-rgb, 50, 184, 198), 0.25);
+    border-color: rgba(var(--color-teal-300-rgb, 50, 184, 198), 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--color-teal-300-rgb, 50, 184, 198), 0.2);
+}
+
+/* Light theme adjustments */
+[data-color-scheme="light"] .skill-tag {
+    background: rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.1);
+    color: var(--color-teal-600);
+    border: 1px solid rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.2);
+}
+
+[data-color-scheme="light"] .skill-tag:hover {
+    background: rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.2);
+    border-color: rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.4);
+}
+
+/* Remove old skill bar styles */
+.skill-bar,
+.skill-info,
+.skill-progress,
+.skill-fill {
+    display: none;
 }
