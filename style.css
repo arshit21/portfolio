@@ -820,82 +820,28 @@ select.form-control {
     }
 }
 
-/* Custom cursor styles and fix */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--color-primary);
-    border-radius: 50%;
-    pointer-events: none !important;
-    z-index: 100000 !important; /* Higher than modal */
-    mix-blend-mode: difference;
-    transition: transform 0.15s ease;
-    opacity: 0;
+/* Restore default cursor behavior */
+body {
+    cursor: auto !important;
 }
 
-.custom-cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    background: var(--color-text);
-    border-radius: 50%;
-     pointer-events: none !important;
-    z-index: 100001 !important; /* Higher than cursor ring */
-    opacity: 0;
+body * {
+    cursor: inherit !important;
 }
 
-.custom-cursor.active {
-    opacity: 1;
+/* Proper cursor states */
+a, button {
+    cursor: pointer !important;
 }
 
-.custom-cursor-dot.active {
-    opacity: 1;
+input, textarea, select {
+    cursor: text !important;
 }
 
-/* Modal-specific cursor rules */
-.project-modal .custom-cursor,
-.project-modal .custom-cursor-dot {
-  z-index: 100000 !important;
-  position: fixed !important;
-  pointer-events: none !important;
+.project-card {
+    cursor: pointer !important;
 }
 
-/* Force cursor hidden on all modal elements */
-.project-modal,
-.project-modal *,
-.modal-overlay,
-.modal-content,
-.modal-close {
-  cursor: none !important;
-}
-
-.custom-cursor.hover {
-    transform: scale(1.5);
-    background: var(--color-primary);
-}
-
-.custom-cursor.click {
-    transform: scale(0.8);
-}
-
-/* Hide default cursor when custom cursor is enabled */
-body.custom-cursor-enabled {
-  cursor: none !important;
-}
-
-body.custom-cursor-enabled * {
-  cursor: none !important;
-}
-
-body.custom-cursor-enabled .cursor-ring.hover {
-  width: 40px;
-  height: 40px;
-}
 
 /* Particles background */
 #particles-js {

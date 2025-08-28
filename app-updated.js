@@ -7,7 +7,6 @@
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     initLoadingScreen();
-    initCustomCursor();
     initParticles();
     initTypingAnimation();
     initNavigation();
@@ -29,69 +28,6 @@ function initLoadingScreen() {
             loadingScreen.classList.add('hidden');
         }, 2000);
     });
-}
-
-function initCustomCursor() {
-    const cursor = document.querySelector('.custom-cursor');
-    const cursorDot = document.querySelector('.custom-cursor-dot');
-
-    // Only initialize cursor on non-touch devices
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
-    if (!isTouchDevice && window.innerWidth > 768) {
-        // Add class to hide default cursor
-        document.body.classList.add('custom-cursor-enabled');
-        
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-
-            cursor.classList.add('active');
-            cursorDot.classList.add('active');
-        });
-
-        // Smooth cursor following
-        function animateCursor() {
-            const distX = mouseX - cursorX;
-            const distY = mouseY - cursorY;
-
-            cursorX += distX * 0.1;
-            cursorY += distY * 0.1;
-
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover effects
-        const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-item');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-            });
-        });
-
-        // Click effect
-        document.addEventListener('mousedown', () => {
-            cursor.classList.add('click');
-        });
-        document.addEventListener('mouseup', () => {
-            cursor.classList.remove('click');
-        });
-    }
 }
 
 // Particles Background
