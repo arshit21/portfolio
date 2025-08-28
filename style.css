@@ -2120,3 +2120,10 @@ section {
         cursor: auto !important;
     }
 }
+
+.btn {
+    /* ... your existing button styles ... */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8); /* This creates consistent spacing */
+}
