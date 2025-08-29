@@ -874,10 +874,20 @@ input, textarea, select {
   height: 70px;
 }
 
+.profile-pic{
+  width:40px;            /* adjust size as desired */
+  height:40px;
+  border-radius:50%;     /* perfect circle */
+  margin-right:10px;     /* gap before the name */
+  object-fit:cover;      /* keep aspect ratio */
+}
+
 .nav-logo {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
+  display:flex;          /* logo text + image side-by-side */
+  align-items:center; 
 }
 
 .nav-menu {
