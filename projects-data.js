@@ -10,7 +10,7 @@ const PROJECTS_DATA = [
     {
         id: 'Breast Cancer Prediction',
         featured: true,
-        category: 'dl',
+        category: 'ai',
         title: 'Breast Cancer Prediction using AlexNet',
         shortDescription: 'Developed an AI-powered breast cancer detection system using AlexNet deep learning architecture to classify mammography images with 99.57% accuracy.',
         description: 'A comprehensive deep learning solution for breast cancer detection that applies the AlexNet convolutional neural network to analyze full-field digital mammography images. The system classifies mammograms into benign and malignant categories using BI-RADS classification criteria, achieving exceptional diagnostic accuracy through advanced image processing and data augmentation techniques.',
@@ -73,7 +73,7 @@ const PROJECTS_DATA = [
     {
         id: 'Urban Health Impact NN',
         featured: true,
-        category: 'ml',
+        category: 'ai',
         title: 'Hierarchical Multimodal Neural Network for Urban-Health Risk',
         shortDescription: 'Predicts a 1-10 Health-Impact Score for Indian cities by fusing pollution, weather, urban and geo data; MSE 0.4455, R² 0.67.',
         description: 'A TensorFlow/Keras framework that ingests multi-source urban data—air pollutants, weather, city metadata and composite indices—to estimate a city-level Health-Impact Score. Five dedicated subnetworks (N1–N5) encode each modality; two aggregators and cross-layer fusion with residual links combine embeddings, yielding an accurate, interpretable risk metric for policy makers.',
@@ -293,8 +293,7 @@ const PROJECTS_DATA = [
 const PROJECT_CATEGORIES = [
     { id: 'all', name: 'All Projects', icon: 'fas fa-th' },
     { id: 'backend', name: 'Backend', icon: 'fas fa-server' },
-    { id: 'ml', name: 'Machine Learning', icon: 'fas fa-project-diagram' },
-    {id: 'dl', name: 'Deep Learning', icon: 'fas fa-brain'},
+    { id: 'ai', name: 'AI/ML/DL', icon: 'fas fa-brain' },
     {id: 'cli', name: 'CLI', icon: 'fas fa-terminal' },
     {id: 'python', name: 'Python', icon: 'fab fa-python'}
 ];
