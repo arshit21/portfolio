@@ -316,39 +316,10 @@ class ProjectRenderer {
 
         document.head.appendChild(modalStyles);
         document.body.appendChild(modal);
-
-        // Handle cursor functionality
-        const cursor = document.querySelector('.custom-cursor');
-        const cursorDot = document.querySelector('.custom-cursor-dot');
-        if (cursor && cursorDot) {
-            cursor.classList.add('active');
-            cursorDot.classList.add('active');
-            cursor.style.position = 'fixed';
-            cursorDot.style.position = 'fixed';
-            cursor.style.zIndex = '100000';
-            cursorDot.style.zIndex = '100000';
-            cursor.style.pointerEvents = 'none';
-            cursorDot.style.pointerEvents = 'none';
-        }
-
-        const modalContent = modal.querySelector('.modal-content');
-        modalContent.addEventListener('mousemove', (e) => {
-            if (cursor && cursorDot) {
-                cursor.style.left = (e.clientX - 10) + 'px';
-                cursor.style.top = (e.clientY - 10) + 'px';
-                cursorDot.style.left = e.clientX + 'px';
-                cursorDot.style.top = e.clientY + 'px';
-            }
-        });
+        ;
 
         // Close modal functionality
         const closeModal = () => {
-            const cursor = document.querySelector('.custom-cursor');
-            const cursorDot = document.querySelector('.custom-cursor-dot');
-            if (cursor && cursorDot) {
-                cursor.style.zIndex = '9999';
-                cursorDot.style.zIndex = '10000';
-            }
             if (document.body.contains(modal)) {
                 document.body.removeChild(modal);
             }
